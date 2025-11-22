@@ -1,1 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Svenja Küchenhoff | Computational Neuroscience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --accent: #3254a8;
+      --text: #222222;
+      --muted: #666666;
+      --border: #e0e0ea;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(247,247,251,0.9);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+    }
+    .nav-name {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    nav a {
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--muted);
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      max-width: 960px;
+      margin: 2.5rem auto 1.5rem;
+      padding: 0 1.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hero-main h1 {
+      font-size: 2.1rem;
+      margin: 0 0 0.4rem;
+    }
+    .hero-main h2 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+    .hero-main p {
+      margin: 0.3rem 0;
+      font-size: 0.98rem;
+    }
+    .hero-tags {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      margin-right: 0.3rem;
+      margin-bottom: 0.25rem;
+      background: #ffffff;
+    }
+
+    .hero-side {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .hero-side h3 {
+      margin-top: 0;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+    }
+    .contact-line {
+      margin-bottom: 0.4rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 1.25rem;
+    }
+
+    section {
+      margin-top: 2.1rem;
+    }
+    section h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+    .card-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+    .card-body {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+    }
+    ul.inline-list {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .pub-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 1.25rem 1.6rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav-container">
+    <div class="nav-name">Svenja Küchenhoff</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#cv">CV</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="about">
+  <div class="hero-main">
+    <h1>Svenja Küchenhoff</h1>
+    <h2>DPhil Student in Computational Neuroscience · University of Oxford</h2>
+    <p>I study how the brain represents the future: how it plans, abstracts, and generalises knowledge across situations.</p>
+    <p>My work combines computational modelling with human fMRI, invasive electrophysiology, and complementary rodent data.</p>
+    <div class="hero-tags">
+      <span class="tag">Computational Neuroscience</span>
+      <span class="tag">Representation Learning</span>
+      <span class="tag">Planning & Generalisation</span>
+      <span class="tag">Human & Rodent Data</span>
+    </div>
+  </div>
+  <aside class="hero-side">
+    <h3>Contact</h3>
+    <div class="contact-line">Oxford, UK</div>
+    <div class="contact-line">+49 163 1310548</div>
+    <div class="contact-line">
+      <a href="mailto:svenja.kuechenhoff@ndcn.ox.ac.uk">svenja.kuechenhoff@ndcn.ox.ac.uk</a>
+    </div>
+    <div class="contact-line">
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="contact-line">
+      <a href="CV-2.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+    </div>
+  </aside>
+</div>
+
+<main>
+  <section id="research">
+    <h2>Research</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Neural coding for planning and schema generalisation</div>
+          <div class="card-subtitle">DPhil in Computational Neuroscience · University of Oxford</div>
+        </div>
+        <div class="card-meta">2022 – present</div>
+      </div>
+      <div class="card-body">
+        I investigate how neural populations encode structured knowledge that supports planning and generalisation.
+        I use computational models and multivariate analyses to link human fMRI and invasive iEEG (LFP and spikes) with rodent recordings,
+        testing mechanistic hypotheses that go beyond correlational descriptions.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Research interests</div>
+        </div>
+      </div>
+      <div class="card-body">
+        I am interested in:
+        <ul class="inline-list">
+          <li>Algorithmic accounts of higher cognition (planning, abstraction, model-based behaviour)</li>
+          <li>Neural representations that support generalisation across tasks and contexts</li>
+          <li>Bridging human and rodent data to build mechanistic, cross-species models</li>
+          <li>Interfaces between systems neuroscience, reinforcement learning, and representation learning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <div class="card">
+      <div class="card-body">
+        <ul class="pub-list">
+          <li><strong>Küchenhoff, S.</strong>, Behrens, T.E.J., et al. Algorithmic representations underlying schema generalisation.
+            Talks at CogSci (2025), RLDM (2024), Mathematics of Neuroscience and AI (2024); Poster at OFC (2023).</li>
+          <li><strong>Küchenhoff, S.</strong>, Zsido, R.G., Saberi, A., Bernhardt, B., Weiss, S., Eickhoff, S., Sacher, J., Valk, S.L.
+            Sex-bias in cortical and hippocampal microstructure. <em>Nature Communications</em>, OHBM Poster (2024).</li>
+          <li>Contreras-Huerta, L.S., Pisauro, A., <strong>Küchenhoff, S.</strong>, et al. Reward self-bias in foraging.
+            <em>Scientific Reports</em>, 2024.</li>
+          <li><strong>Küchenhoff, S.</strong>, Doerflinger, J., Heinzelmann, N. Genetic technologies questionnaire.
+            <em>BMC Medical Ethics</em>, 2022.</li>
+          <li><strong>Küchenhoff, S.</strong>, Sorg, C., et al. Visual processing speed &amp; frontoparietal–visual connectivity.
+            <em>European Journal of Neuroscience</em>, 2021.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching & Mentoring</h2>
+    <div class="card">
+      <div class="card-body">
+        <ul class="inline-list">
+          <li>Teaching Assistant, Computational Neuroscience – Trend CAMINA Summer School (2025)</li>
+          <li>Tutor, “How to Build a Brain from Scratch” – machine learning in neuroscience (Oxford, 2024–2025)</li>
+          <li>Tutor, “Experimental design of fMRI experiments” – WIN MRI Graduate Course (2024)</li>
+          <li>Dissertation Supervisor – MSc Neuroscience, University of Oxford (2024)</li>
+          <li>Coach – BE.BOOSTED workshops on public speaking &amp; leadership (2021–2022)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2>Bio &amp; CV Highlights</h2>
+    <div class="card">
+      <div class="card-body">
+        <strong>Current position.</strong> DPhil in Computational Neuroscience, University of Oxford (supervisors: Timothy Behrens, Laurence Hunt).<br>
+        <strong>Education.</strong> MSc Neuroscience (Oxford), MSc Neuro-Cognitive Psychology (LMU Munich), BSc Psychology (Heidelberg).<br>
+        <strong>Fellowships.</strong> Boehringer Ingelheim Fonds PhD Fellow; German Scholarship Foundation PhD Fellowship &amp; Max-Weber-Program; Wilfred Knapp Science Scholarship; DAAD PROMOS (top 2–3%).
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Svenja Küchenhoff · Computational Neuroscience
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
 
