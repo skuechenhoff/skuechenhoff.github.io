@@ -12,7 +12,6 @@
       --text: #0f172a;
       --card: #ffffff;
       --border: #eceef2;
-      --accent: #2563eb;
       --accent-turq: #0b8b87;
       --shadow: 0 6px 22px rgba(15,23,42,0.06);
       --radius: 12px;
@@ -34,7 +33,6 @@
     .hero p{margin:0 0 12px;color:var(--muted)}
     .banner{width:100%;height:220px;border-radius:12px;overflow:hidden;margin:16px 0;border:1px solid var(--border);box-shadow:0 10px 30px rgba(2,6,23,0.04)}
     .banner img{width:100%;height:100%;object-fit:cover;display:block}
-    .grid-1{display:block;gap:20px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow);margin-bottom:18px}
     .chips{margin-top:10px}
     .chip{display:inline-block;padding:6px 10px;border-radius:999px;font-size:0.85rem;color:var(--muted);border:1px solid #f1f3f6;margin-right:8px;background:linear-gradient(180deg,#fff,#fbfdff)}
@@ -56,10 +54,9 @@
     .overlay-close{position:absolute;right:10px;top:10px;background:var(--accent-turq);color:#fff;border-radius:8px;padding:8px 10px;border:0;cursor:pointer;font-weight:600}
     .overlay-close:hover{opacity:.95}
     footer{margin-top:36px;color:var(--muted);font-size:0.9rem;text-align:center}
-    /* experiences */
+    .wide{width:100%;display:block}
     .experience-list{margin:0;padding:0}
     .experience-item{margin-bottom:12px}
-    .wide{width:100%;display:block}
   </style>
 </head>
 <body>
@@ -74,6 +71,9 @@
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#teaching">Teaching</a>
         <a href="projects.html#top">Projects</a>
         <a href="#media">Media</a>
         <a href="#contact">Contact</a>
@@ -81,83 +81,110 @@
     </header>
 
     <main>
-      <!-- ABOUT + BANNER -->
+      <!-- ABOUT -->
       <section id="about" class="hero-card hero">
         <h1>Computational Neuroscience &amp; Abstract Cognition</h1>
+
         <div class="banner" aria-hidden="true">
           <img src="assets/pictures/2025-05-NeuroMAI.jpeg" alt="Svenja giving a talk at NeuroMAI">
         </div>
 
         <h2>DPhil Student · University of Oxford</h2>
 
-        <p>I study how the brain uses structured internal models to plan, abstract, and generalise across tasks and environments. My research combines computational modelling with human fMRI and intracranial electrophysiological recordings to probe neural representations of planning — or how we represent states of the future.</p>
+        <p>I study how the brain uses structured internal models to plan, abstract, and generalise across tasks and environments. My research combines computational modelling with human fMRI and intracranial electrophysiological recordings to probe neural representations of planning — how we represent states of the future.</p>
 
         <div class="chips" aria-hidden="true">
           <span class="chip">Planning &amp; schema generalisation</span>
-          <span class="chip">Human iEEG &amp; fMRI replay</span>
+          <span class="chip">Human iEEG &amp; fMRI</span>
+          <span class="chip">neuro × AI</span>
+          <span class="chip">high dimensional data analysis</span>
         </div>
       </section>
 
-      <!-- Publications (full width) -->
+      <!-- RESEARCH -->
+      <section id="research" class="card" aria-labelledby="res-title">
+        <h3 id="res-title" style="margin-top:0">Research</h3>
+        <p style="margin:0;color:var(--muted)">I use multivariate analyses and model-based approaches to link human fMRI and iEEG (LFP &amp; spikes) to mechanistic theories of higher cognition inspired by computational models and rodent electrophysiology.</p>
+      </section>
+
+      <!-- PUBLICATIONS (full width) -->
       <section id="publications" class="card wide" aria-labelledby="pub-title">
         <h3 id="pub-title" style="margin-top:0">Selected publications</h3>
         <ul class="pub-list">
-          <li><strong>Küchenhoff, S.</strong>, Behrens, T.E.J., et al. Algorithmic representations underlying schema generalisation. Talks at CogSci (2025), RLDM (2024).</li>
-          <li><strong>Küchenhoff, S.</strong>, Zsido, R.G., Saberi, A., Bernhardt, B., Weiss, S., Eickhoff, S., Sacher, J., Valk, S.L. Sex-bias in cortical and hippocampal microstructure. <em>Nature Communications</em>, 2024. <a href="assets/pdfs/2024-Nature_comms_sex-bias_microstructure.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
-          <li>Contreras-Huerta, L.S., Pisauro, A., <strong>Küchenhoff, S.</strong>, et al. Reward self-bias in foraging. <em>Scientific Reports</em>, 2024. <a href="assets/pdfs/2024-SciReps-self-bias_foraging.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
-          <li><strong>Küchenhoff, S.</strong>, Doerflinger, J., Heinzelmann, N. Genetic technologies questionnaire. <em>BMC Medical Ethics</em>, 2022. <a href="assets/pdfs/2022-BMC_medical_ethics_GTQ-validation.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
+          <li>
+            <strong>Küchenhoff, S.</strong>, Behrens, T.E.J., et al. Algorithmic representations underlying schema generalisation.
+            Talks at CogSci (2025), RLDM (2024). <a href="https://escholarship.org/uc/item/8vz352cz" target="_blank" rel="noopener noreferrer">CogSci talk (slides / abstract)</a>
+          </li>
+          <li>
+            <strong>Küchenhoff, S.</strong>, Zsido, R.G., Saberi, A., Bernhardt, B., Weiss, S., Eickhoff, S., Sacher, J., Valk, S.L.
+            Sex-bias in cortical and hippocampal microstructure. <em>Nature Communications</em>, 2024.
+            <a href="assets/pdfs/2024-Nature_comms_sex-bias_microstructure.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+          </li>
+          <li>
+            Contreras-Huerta, L.S., Pisauro, A., <strong>Küchenhoff, S.</strong>, et al. Reward self-bias in foraging. <em>Scientific Reports</em>, 2024.
+            <a href="assets/pdfs/2024-SciReps-self-bias_foraging.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+          </li>
+          <li>
+            <strong>Küchenhoff, S.</strong>, Doerflinger, J., Heinzelmann, N. Genetic technologies questionnaire. <em>BMC Medical Ethics</em>, 2022.
+            <a href="assets/pdfs/2022-BMC_medical_ethics_GTQ-validation.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+          </li>
         </ul>
       </section>
 
-      <!-- Teaching (full width) -->
-      <section id="teaching" class="card wide" aria-labelledby="teach-title">
-        <h3 id="teach-title" style="margin-top:0">Teaching</h3>
-        <p>
-          Accomplished accessible, reproducible teaching for early-career students as measured by positive student project outcomes and completed analyses by delivering lectures on MRI for computational neuroscience, leading Python tutorials, and supervising a student project analysing Allen Institute calcium-imaging data.
-        </p>
-        <p>
-          <a href="projects.html#trendcamina">Read more about the TReND-CaMinA project and student projects →</a>
-        </p>
-      </section>
-
-      <!-- Awards (full width) -->
+      <!-- AWARDS & FELLOWSHIPS -->
       <section id="awards" class="card wide" aria-labelledby="awards-title">
         <h3 id="awards-title" style="margin-top:0">Awards &amp; Fellowships</h3>
         <ul style="margin-left:1.2rem">
-          <li>Accomplished independent research recognition as measured by selection for the Boehringer Ingelheim Fonds PhD Fellowship by demonstrating research excellence and proposal quality.</li>
-          <li>Accomplished academic excellence recognition as measured by selection for the German Academic Scholarship Foundation (Max-Weber &amp; PhD programs) by sustained top performance and leadership.</li>
-          <li>Accomplished college-level distinction as measured by the Wilfred Knapp Scholarship by contributing to academic and extracurricular achievements.</li>
+          <li><strong>Boehringer Ingelheim Fonds — PhD Fellowship</strong><br>
+            Awarded in recognition of research excellence, as shown by selection following a competitive application process (success rate 8%).
+          </li>
+
+          <li><strong>German Academic Scholarship Foundation (Promotionsförderung der Studienstiftung des Deutschen Volkes)</strong><br>
+            Recipient of fellowship support, reflecting sustained academic achievement and leadership as assessed by the Foundation’s selection panels (55,4% of recipients finish their dissertation "summa cum laude"; selection criteria emphasise giving back to society).
+          </li>
+
+          <li><strong>Wilfred Knapp Science Scholarship (St Catherine’s College, Oxford)</strong><br>
+            Awarded for academic distinction and contributions to college life.
+          </li>
         </ul>
       </section>
 
-      <!-- Research tile (compact) -->
-      <section id="research" class="card" aria-labelledby="res-title">
-        <h3 id="res-title" style="margin-top:0">Research</h3>
-        <p style="margin:0;color:var(--muted)">I use multivariate analyses and model-based approaches to link human fMRI and iEEG (LFP &amp; spikes) to mechanistic theories of higher cognition.</p>
-      </section>
-
-      <!-- Experiences (based on CV) -->
+      <!-- EXPERIENCES (concise facts only) -->
       <section id="experiences" class="card wide" aria-labelledby="exp-title">
         <h3 id="exp-title" style="margin-top:0">Experiences</h3>
         <ul class="experience-list">
           <li class="experience-item">
             <strong>University of Oxford — DPhil Researcher (2022–present)</strong><br>
-            Accomplished development of robust, reproducible analysis pipelines as measured by faster analysis turnaround and stable inference results by building end-to-end Python workflows (pandas/NumPy/scikit-learn) and implementing NaN-robust tests and cross-validation. :contentReference[oaicite:6]{index=6}
+            Built and maintained reproducible Python analysis pipelines for human neuroimaging and electrophysiology data; these pipelines improved analysis iteration time and produced consistent results across experiments.
+          </li>
+
+          <li class="experience-item">
+            <strong>CPC-AG — Intern &amp; Student Consultant (2017–2019), Frankfurt, Germany</strong><br>
+            Worked on change-management projects, developed immersive business simulations, and led agile &amp; Scrum trainings for client teams.
           </li>
 
           <li class="experience-item">
             <strong>Merck KGaA — CEO Office Intern (Strategy) (2020)</strong><br>
-            Accomplished strategic decision support as measured by acceptance of materials by executive stakeholders by coordinating portfolio metrics, aligning stakeholder timelines, and contributing to leadership decision documents. :contentReference[oaicite:7]{index=7}
+            Prepared decision materials and coordinated portfolio metrics used in executive planning.
           </li>
 
           <li class="experience-item">
             <strong>Skippy Ed — Strategic &amp; Scientific Advisor (2025)</strong><br>
-            Accomplished product-scoping and evaluation planning as measured by defined roadmap milestones by scoping data sources, designing evaluation plans, and supporting early user-testing feedback loops. :contentReference[oaicite:8]{index=8}
+            Scoped evaluation plans and supported early user testing to define measurable roadmap milestones.
           </li>
         </ul>
       </section>
 
-      <!-- Media gallery (no heading; three items in requested order) -->
+      <!-- TEACHING (full width) -->
+      <section id="teaching" class="card wide" aria-labelledby="teach-title">
+        <h3 id="teach-title" style="margin-top:0">Teaching</h3>
+
+        <p>
+          I love sharing what I know with those who are keen to learn. I supervised an exceptionally talented MSc Neuroscience student (2024), tutored postgraduate students for “Experimental design of fMRI experiments” (2024), and taught undergraduates on Chris Summerfield’s course “How to Build a Brain from Scratch” (University of Oxford, 2024 &amp; 2025). I have served on the board of the student-led organisation <a href="https://www.be-boosted.org/" target="_blank" rel="noopener noreferrer">be.boosted</a>, where I ran workshops on public speaking and leadership. My most recent major teaching project is <a href="https://trendinafrica.org/trend-camina/" target="_blank" rel="noopener noreferrer">TReND-CaMinA</a>, a summer school emphasising accessibility and open science aimed at students across Africa — <a href="projects.html#trendcamina">read more here</a>.
+        </p>
+      </section>
+
+      <!-- MEDIA gallery (no heading) -->
       <section id="media" class="card" aria-label="Media">
         <p style="margin:0 0 12px 0;color:var(--muted)">In my free time, I like to be creative and spend time in the outdoors.</p>
 
@@ -181,7 +208,7 @@
         </div>
       </section>
 
-      <!-- Contact (no phone, no CV link) -->
+      <!-- CONTACT (email only) -->
       <aside id="contact" class="card contact" aria-labelledby="contact-title">
         <h3 id="contact-title" style="margin-top:0">Contact</h3>
         <div class="row">University of Oxford · Oxford, UK</div>
