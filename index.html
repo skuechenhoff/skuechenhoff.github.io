@@ -116,6 +116,19 @@
     aside.contact a{color:var(--accent); text-decoration:none}
     aside.contact .muted{color:var(--muted); font-size:0.85rem}
 
+    /* profile image */
+    .profile{
+      width:96px;
+      height:96px;
+      border-radius:12px;
+      overflow:hidden;
+      flex-shrink:0;
+      border:1px solid var(--border);
+      box-shadow:0 8px 24px rgba(15,23,42,0.06);
+      margin-bottom:12px;
+    }
+    .profile img{width:100%;height:100%;object-fit:cover;display:block}
+
     /* Publications */
     .publications .list{padding-left:1rem}
     .publications li{margin-bottom:10px}
@@ -147,8 +160,8 @@
     }
     .media-card:focus{outline:3px solid rgba(37,99,235,0.12)}
     .media-card:hover, .media-card:focus{
-      transform:scale(1.04);
-      z-index:3;
+      transform:scale(1.02);
+      z-index:2;
       box-shadow:0 18px 40px rgba(15,23,42,0.12);
     }
 
@@ -161,16 +174,59 @@
       transform-origin:center center;
     }
 
-    .media-caption{
+    /* Lightbox / overlay for centred large preview */
+    .overlay{
+      position:fixed;
+      left:0;
+      top:0;
+      width:100vw;
+      height:100vh;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(2,6,23,0.55);
+      z-index:9999;
+      padding:20px;
+    }
+    .overlay.show{display:flex}
+    .overlay-content{
+      max-width:90vw;
+      max-height:90vh;
+      border-radius:12px;
+      overflow:hidden;
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .overlay-content img, .overlay-content video{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      background: #111;
+    }
+    .overlay-close{
       position:absolute;
-      left:12px;
-      bottom:10px;
+      right:10px;
+      top:10px;
       background:rgba(255,255,255,0.9);
+      border-radius:8px;
+      padding:6px 8px;
+      font-weight:600;
+      cursor:pointer;
+      border:none;
+    }
+    .overlay-caption{
+      position:absolute;
+      left:16px;
+      bottom:12px;
+      color:white;
+      font-size:0.95rem;
+      background:rgba(0,0,0,0.35);
       padding:6px 8px;
       border-radius:8px;
-      font-size:0.85rem;
-      color:var(--text);
-      box-shadow:0 4px 12px rgba(2,6,23,0.06);
     }
 
     /* Footer */
@@ -213,12 +269,21 @@
         </div>
 
         <aside class="card contact" id="contact">
-          <div class="row"><strong>Contact</strong></div>
-          <div class="row">University of Oxford · Oxford, UK</div>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div class="profile" aria-hidden="true">
+              <img src="assets/pictures/2025-05-NeuroMAI.jpeg" alt="Svenja Küchenhoff giving a talk">
+            </div>
+            <div style="flex:1">
+              <div style="font-weight:700">Svenja Küchenhoff</div>
+              <div style="color:var(--muted);font-size:0.95rem">DPhil Student · University of Oxford</div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:12px">University of Oxford · Oxford, UK</div>
           <div class="row">+49 163 1310548</div>
           <div class="row"><a href="mailto:svenja.kuechenhoff@ndcn.ox.ac.uk">svenja.kuechenhoff@ndcn.ox.ac.uk</a></div>
           <div class="row"><a href="assets/pdfs/Svenja_Kuechenhoff_CV_2025.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a></div>
-          <div class="row muted">Boehringer Ingelheim Fonds PhD Fellow · German Scholarship Foundation Scholar</div>
+          <div class="row muted" style="margin-top:10px">Boehringer Ingelheim Fonds PhD Fellow · German Scholarship Foundation Scholar</div>
         </aside>
       </section>
 
@@ -291,43 +356,34 @@
 
         <div style="margin-top:12px" class="card">
           <h3 style="margin-top:0">Paintings & Trails</h3>
-          <p style="margin:0 0 12px 0;color:var(--muted)">Hover to enlarge. Hover a video to play. Tap or keyboard-focus on mobile to play.</p>
+          <p style="margin:0 0 12px 0;color:var(--muted)">In my free time, I like to be creative and spend time in the outdoors.</p>
 
           <div class="gallery-grid" aria-live="polite">
             <!-- Video card (painting video) -->
-            <div class="media-card" tabindex="0" role="button" aria-label="Painting video — hover to preview">
+            <div class="media-card" tabindex="0" role="button" data-type="video" data-src="assets/pictures/2024-11-Painting.mp4" aria-label="Painting video">
               <video muted loop preload="metadata" playsinline>
                 <source src="assets/pictures/2024-11-Painting.mp4" type="video/mp4">
                 Your browser does not support the video element.
               </video>
-              <div class="media-caption">Painting (video)</div>
             </div>
 
-            <!-- Trail images -->
-            <div class="media-card" tabindex="0" role="button" aria-label="Dolomite trail photo">
-              <img src="assets/pictures/2025-08-DolomiteTrail.jpeg" alt="Dolomite Trail photo">
-              <div class="media-caption">Dolomite Trail</div>
+            <!-- Trail images (no titles) -->
+            <div class="media-card" tabindex="0" role="button" data-type="image" data-src="assets/pictures/2025-08-DolomiteTrail.jpeg" aria-label="Dolomite Trail photo">
+              <img src="assets/pictures/2025-08-DolomiteTrail.jpeg" alt="">
             </div>
 
-            <div class="media-card" tabindex="0" role="button" aria-label="Salomon Trail photo 1">
-              <img src="assets/pictures/2025-10-SalomonTrail.jpeg" alt="Salomon Trail photo">
-              <div class="media-caption">Salomon Trail</div>
+            <div class="media-card" tabindex="0" role="button" data-type="image" data-src="assets/pictures/2025-10-SalomonTrail.jpeg" aria-label="Salomon Trail photo">
+              <img src="assets/pictures/2025-10-SalomonTrail.jpeg" alt="">
             </div>
 
-            <div class="media-card" tabindex="0" role="button" aria-label="Salomon Trail photo 2">
-              <img src="assets/pictures/2025-10-SalomonTrail2.jpeg" alt="Salomon Trail photo 2">
-              <div class="media-caption">Salomon Trail 2</div>
+            <div class="media-card" tabindex="0" role="button" data-type="image" data-src="assets/pictures/2025-10-SalomonTrail2.jpeg" aria-label="Salomon Trail photo">
+              <img src="assets/pictures/2025-10-SalomonTrail2.jpeg" alt="">
             </div>
 
-            <div class="media-card" tabindex="0" role="button" aria-label="NeuroMAI painting photo">
-              <img src="assets/pictures/2025-05-NeuroMAI.jpeg" alt="NeuroMAI painting">
-              <div class="media-caption">NeuroMAI Painting</div>
+            <div class="media-card" tabindex="0" role="button" data-type="image" data-src="assets/pictures/2025-05-NeuroMAI.jpeg" aria-label="NeuroMAI painting photo">
+              <img src="assets/pictures/2025-05-NeuroMAI.jpeg" alt="">
             </div>
 
-            <div class="media-card" tabindex="0" role="button" aria-label="2024 painting photo">
-              <img src="assets/pictures/2024-10-Painting.jpeg" alt="Painting 2024">
-              <div class="media-caption">Painting (photo)</div>
-            </div>
           </div>
         </div>
       </section>
@@ -339,54 +395,115 @@
     </footer>
   </div>
 
+  <!-- Overlay / lightbox -->
+  <div id="overlay" class="overlay" aria-hidden="true" role="dialog" aria-label="Media preview">
+    <div class="overlay-content" role="document">
+      <button id="overlay-close" class="overlay-close" aria-label="Close preview">Close ✕</button>
+      <div id="overlay-inner" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"></div>
+    </div>
+  </div>
+
   <script>
     // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Play/pause video on hover/focus
-    document.querySelectorAll('.media-card').forEach(card => {
-      const vid = card.querySelector('video');
-      if (!vid) {
-        // for images: no special JS needed; transform is handled by CSS
-        // but support keyboard "activation" to open in new tab on Enter
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            const img = card.querySelector('img');
-            if (img) window.open(img.src, '_blank', 'noopener');
-          }
-        });
-        return;
+    const overlay = document.getElementById('overlay');
+    const overlayInner = document.getElementById('overlay-inner');
+    const overlayClose = document.getElementById('overlay-close');
+
+    // disable scroll when overlay open
+    function setOverlay(open) {
+      if (open) {
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        // cleanup content
+        overlayInner.innerHTML = '';
       }
+    }
 
-      // desktop: mouse interactions
-      card.addEventListener('mouseenter', () => {
-        // attempt to play (mute required by browsers for autoplay)
-        vid.currentTime = 0;
-        const playPromise = vid.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {/* autoplay blocked — fine */});
-        }
+    // create element depending on type
+    function createMediaElement(type, src) {
+      if (type === 'video') {
+        const v = document.createElement('video');
+        v.src = src;
+        v.loop = true;
+        v.muted = true;
+        v.autoplay = true;
+        v.playsInline = true;
+        v.controls = true; // allow user to unmute / scrub
+        v.style.maxWidth = '100%';
+        v.style.maxHeight = '100%';
+        return v;
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '100%';
+        return img;
+      }
+    }
+
+    // open overlay for given type+src
+    function openPreview(type, src) {
+      const el = createMediaElement(type, src);
+      overlayInner.appendChild(el);
+      setOverlay(true);
+      // try to play if video element is present
+      if (type === 'video') {
+        // browsers require user interaction sometimes; catch promise
+        const p = el.play && el.play();
+        if (p && p.catch) p.catch(()=>{ /* ignore autoplay block */ });
+      }
+    }
+
+    // wire up interactions
+    document.querySelectorAll('.media-card').forEach(card => {
+      const type = card.dataset.type;
+      const src = card.dataset.src;
+
+      // Desktop: hover shows preview (enter/leave)
+      card.addEventListener('mouseenter', (e) => {
+        // only show overlay on non-touch devices to avoid conflicts
+        if ('ontouchstart' in window) return;
+        openPreview(type, src);
       });
-      card.addEventListener('mouseleave', () => {
-        vid.pause();
-        vid.currentTime = 0;
+      card.addEventListener('mouseleave', (e) => {
+        if ('ontouchstart' in window) return;
+        setOverlay(false);
       });
 
-      // keyboard accessibility: play/pause on focus/blur and Enter to toggle
-      card.addEventListener('focus', () => {
-        const p = vid.play();
-        if (p !== undefined) p.catch(()=>{});
-      }, true);
-      card.addEventListener('blur', () => {
-        vid.pause(); vid.currentTime = 0;
-      }, true);
+      // click/tap/keyboard: open overlay
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPreview(type, src);
+      });
 
       card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          // open video in new tab on Enter
-          window.open(vid.querySelector('source').src, '_blank', 'noopener');
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openPreview(type, src);
+        } else if (e.key === 'Escape') {
+          setOverlay(false);
         }
       });
+    });
+
+    // overlay close
+    overlayClose.addEventListener('click', () => setOverlay(false));
+    // click outside to close
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) setOverlay(false);
+    });
+
+    // Esc to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOverlay(false);
     });
   </script>
 </body>
