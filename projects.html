@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Svenja Küchenhoff</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff; --text:#0f172a; --muted:#6b7280; --border:#eceef2; --accent-turq:#0b8b87;
+      --container:1100px; --radius:12px; --shadow:0 10px 30px rgba(2,6,23,0.06);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui;margin:28px;background:var(--bg);color:var(--text)}
+    .wrap{max-width:var(--container);margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    header a{color:var(--accent-turq);text-decoration:none}
+    .tile{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:var(--shadow);display:flex;gap:18px;align-items:flex-start}
+    .tile img{width:360px;max-width:38%;height:auto;object-fit:cover;border-radius:10px}
+    .tile .content{flex:1}
+    .tile h2{margin:0 0 6px}
+    .meta{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
+    .back{display:inline-block;margin-bottom:12px;color:var(--muted)}
+    /* full width tile variant (image above content for small screens) */
+    @media(max-width:900px){ .tile{flex-direction:column} .tile img{width:100%;max-width:100%} }
+
+    /* highlight when navigated-to */
+    .tile.highlight{box-shadow:0 24px 48px rgba(11,139,135,0.08);border:2px solid var(--accent-turq);transition:box-shadow .35s,border .35s}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html">← Back to home</a>
+      <div><strong>Projects</strong></div>
+    </header>
+
+    <!-- anchor used to link from index.html -->
+    <div id="top"></div>
+
+    <!-- TrendCamina tile -->
+    <article id="trendcamina" class="tile" tabindex="-1" role="article" aria-labelledby="tc-title">
+      <img src="assets/pictures/2025-07-TrendCamina.jpg" alt="TReND-CaMinA course photo">
+      <div class="content">
+        <h2 id="tc-title">TReND-CaMinA — Teaching & Student Projects (2025 / 2026)</h2>
+        <div class="meta">Lecturer & tutor — MRI lecture, Python tutorials, student project supervision</div>
+
+        <p>
+          At TReND-CaMinA I led an introductory lecture on how MRI can be used for computational neuroscience
+          and ran hands-on Python tutorials tailored to students with mixed backgrounds. I supervised a student
+          group project analysing an Allen Institute calcium-imaging dataset — designing a reproducible analysis
+          pipeline, mentoring the group through data preprocessing and visualization, and guiding interpretation
+          of layer-specific activity patterns in visual cortex.
+        </p>
+
+        <p>
+          In this role I organised workshop materials to be clear and reusable, split the project into manageable
+          milestones, and facilitated presentations so students could communicate methods and results. The emphasis
+          was on enabling accessible, reproducible analyses and helping participants convert data insights into well-formed
+          short talks and project reports.
+        </p>
+
+        <p>
+          <strong>Materials & report:</strong>
+          <a href="assets/pdfs/CaMinA_Report2024.pdf" target="_blank" rel="noopener noreferrer">TReND-CaMinA report (PDF)</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- placeholder for future tiles -->
+    <article id="future-project" class="tile" tabindex="-1" role="article" aria-labelledby="fut-title">
+      <img src="assets/pictures/2025-10-SalomonTrail.jpeg" alt="">
+      <div class="content">
+        <h2 id="fut-title">Project placeholder — add more here</h2>
+        <div class="meta">Short description or dates</div>
+        <p>Use this space to add more projects, reproducible notebooks, or datasets. Each tile is full-width and linkable.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <script>
+    // If loaded with a hash, scroll to it and briefly highlight
+    function focusTile(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      // scroll into view with offset
+      const yOffset = -24;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior:'smooth'});
+      // highlight
+      el.classList.add('highlight');
+      // remove highlight after 3.5s
+      window.setTimeout(()=> el.classList.remove('highlight'), 3500);
+      // ensure keyboard focus for screen readers
+      el.focus({preventScroll:true});
+    }
+
+    // on load: if hash present, focus tile; if hash is #top do nothing
+    window.addEventListener('load', () => {
+      const hash = location.hash.replace('#','');
+      if(hash && hash !== 'top'){
+        // small delay to allow rendering
+        setTimeout(()=> focusTile(hash), 150);
+      }
+    });
+  </script>
+</body>
+</html>
