@@ -19,6 +19,8 @@
     .meta{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
     @media(max-width:900px){ .tile{flex-direction:column} .tile img{width:100%;max-width:100%} }
     .tile.highlight{box-shadow:0 24px 48px rgba(11,139,135,0.08);border:2px solid var(--accent-turq);transition:box-shadow .35s,border .35s}
+    .chips{margin-top:8px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;font-size:0.85rem;color:var(--muted);border:1px solid #f1f3f6;margin-right:8px;background:linear-gradient(180deg,#fff,#fbfdff)}
   </style>
 </head>
 <body>
@@ -34,15 +36,11 @@
     <article id="trendcamina" class="tile" tabindex="-1" role="article" aria-labelledby="tc-title">
       <img src="assets/pictures/2025-07-TrendCamina.jpg" alt="TReND-CaMinA course photo">
       <div class="content">
-        <h2 id="tc-title">TReND-CaMinA — Teaching & Student Projects (2025 / 2026)</h2>
+        <h2 id="tc-title">TReND-CaMinA — Teaching &amp; Organisation</h2>
         <div class="meta">Lecturer &amp; tutor — MRI lecture, Python tutorials, student project supervision</div>
 
         <p>
-          I led an MRI lecture, ran Python tutorials, and supervised a student group working on an Allen Institute calcium-imaging dataset. By designing a clear, modular analysis pipeline and breaking the project into manageable milestones I helped students complete reproducible analyses and present results to peers — outcomes visible in the student project reports and final presentations.
-        </p>
-
-        <p>
-          I prepared reusable teaching materials so future editions can reuse the curriculum and scale the course’s impact.
+          TReND-CaMinA is an intensive computational neuroscience &amp; machine learning course that is fully funded for African students, including travel and accommodation. I gave a lecture on MRI in computational neuroscience, led Python tutorials, and tutored a group of students on a research project using the Allen calcium-imaging dataset (mouse visual cortex). Teaching students from a broad variety of backgrounds and cultures was extremely rewarding and horizon-widening — participants were highly engaged and produced reproducible analyses and presentations.
         </p>
 
         <p>
@@ -53,13 +51,30 @@
       </div>
     </article>
 
-    <!-- placeholder tile -->
-    <article id="future-project" class="tile" tabindex="-1" role="article" aria-labelledby="fut-title">
-      <img src="assets/pictures/2025-10-SalomonTrail.jpeg" alt="">
+    <!-- Sex-bias tile -->
+    <article id="sex-bias" class="tile" tabindex="-1" role="article" aria-labelledby="sex-title">
+      <img src="assets/pictures/2024-Sexhormones_brainstructure.png" alt="Sex hormones and brain microstructure">
       <div class="content">
-        <h2 id="fut-title">Project placeholder — add more here</h2>
-        <div class="meta">Short description or dates</div>
-        <p>Use this space to add more projects. Tiles are linkable and highlight when navigated to.</p>
+        <h2 id="sex-title">Sex-bias in cortical and hippocampal microstructure</h2>
+        <div class="meta">Nature Communications, 2024</div>
+
+        <p>
+          The female data gap is widespread — much of neuroscience has historically relied on male participants or male animals, leaving large gaps in knowledge about the female body and brain. In this project we investigated how female sex hormones influence brain structure.
+        </p>
+
+        <p>
+          We analysed regional microstructure of the cerebral cortex using MRI in over 1,000 healthy women and men. We showed there are sex-specific regional differences in cortical and hippocampal microstructure, and that these differences vary with women’s hormone profiles — in some cases differences disappear or reverse. Effects were concentrated in regions with high expression of estrogen receptors and genes involved in sex-hormone synthesis, suggesting sex hormones modulate microstructural plasticity.
+        </p>
+
+        <div class="chips" aria-hidden="true">
+          <span class="chip">MATLAB &amp; Python</span>
+          <span class="chip">Max Planck Institute for Human Cognitive and Brain Sciences</span>
+        </div>
+
+        <p style="margin-top:10px">
+          <strong>Paper & data:</strong>
+          <a href="assets/pdfs/2024-Nature_comms_sex-bias_microstructure.pdf" target="_blank" rel="noopener noreferrer">Nature Communications (PDF)</a>
+        </p>
       </div>
     </article>
 
